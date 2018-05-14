@@ -1,0 +1,99 @@
+<div class="page-header navbar navbar-fixed-top">
+  <div class="page-header-inner">
+    <div class="page-logo">
+      <a ui-sref="main" ui-sref-opts="{reload: true, inherit: false}">
+        <img src="/images/logo.png" height="40" alt="logo" class="logo-default">
+      </a>
+      <div class="menu-toggler sidebar-toggler">
+        <span></span>
+      </div>
+    </div>
+    <a href="javascript:;" class="menu-toggler responsive-toggler"
+       data-toggle="collapse" data-target=".navbar-collapse"> <span></span></a>
+    <div class="title" style="color: white;">HOME</div>
+    <div class="page-top">
+      <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+          <li class="separator hide"></li>
+
+          <li class="dropdown dropdown-extended dropdown-notification dropdown-light"
+              id="header_notification_bar">
+            <a href="javascript:;"
+               class="dropdown-toggle"
+               data-toggle="dropdown"
+               data-hover="dropdown"
+               data-close-others="true"
+               aria-expanded="true">
+              <i class="icon-bell"></i>
+              <span class="badge badge-danger"> 3 </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="external">
+                <h3>
+                  <span class="bold">4</span> Thông báo
+                </h3>
+              </li>
+              <li>
+                <ul class="dropdown-menu-list" on-scroll-to-bottom="loadMoreNotification">
+                  <li ng-repeat="notification in notifications.data">
+                    <a href="#">
+                      <span class="time">new</span>
+                      <span class="details">
+                        <span class="label label-sm label-icon label-warning">
+                          <i class="fa fa-bullhorn"></i>
+                        </span>
+                        <spanclass="label label-sm label-icon label-success">
+                          <i class="fa fa-bell"></i>
+                        </span>
+                        <span> Thông báo </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="text-center">
+                    <i class="fa fa-spinner fa-pulse"></i>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown dropdown-user dropdown-light">
+            <a href="#" class="dropdown-toggle"
+               data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <span class="username username-hide-on-mobile">{{currentUser.username}}</span>
+              <img alt="" class="img-circle" src="/images/avatar.jpg" /></a>
+            <ul class="dropdown-menu dropdown-menu-default">
+              <li>
+                <a ng-click="showEditPasswordModal()">
+                <i class="icon-lock"></i> {{"change_password"| translator: 'main'}} </a>
+              </li>
+              <li>
+                <a href="#" ng-click="signOut()">
+                <i class="icon-key"></i> {{"logout"| translator: 'main'}} </a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="dropdown dropdown-light dropdown-language">
+            <a href="javascript:;" class="dropdown-toggle"
+               data-toggle="dropdown" data-hover="dropdown"
+               data-close-others="true" aria-expanded="true">
+              <img alt="" ng-src="{{'/images/flags/' + language + '.png'}}">
+              <span class="langname uppercase"> &nbsp; {{language}} </span>
+              <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-default">
+              <li>
+                <a href="javascript:void(0)" ng-click="changeLanguage('vi')">
+                  <img alt="Việt Nam" src="/images/flags/vi.png"> Việt Nam </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" ng-click="changeLanguage('en')">
+                  <img alt="English" src="/images/flags/en.png"> English </a>
+              </li>
+            </ul>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

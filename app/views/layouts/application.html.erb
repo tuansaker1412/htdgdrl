@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hệ thống đánh giá điểm rèn luyện</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <base href="/">
+</head>
+<body ng-app="AccountApp" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid
+      page-sidebar-closed-hide-logo ng-scope page-sidebar-closed"
+      ng-class="{'login-page': !currentUser}">
+  <div ui-view></div>
+</body>
+</html>
