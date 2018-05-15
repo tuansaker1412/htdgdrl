@@ -18,6 +18,10 @@ angular.module("app.factory", [])
     editPassword: function(user, token, password) {
       return $http.put("/api/users/passwords/" + user, {token: token, password: password});
     },
+    updatePassword: function(new_password, current_password) {
+      return $http.put("/api/users/update_password" , {new_password: new_password,
+        current_password: current_password});
+    },
     signUp: function(user) {
       return $http.post("/api/users/registrations", {user: user})
     },
@@ -75,60 +79,8 @@ angular.module("app.factory", [])
     }
   }
 }])
-.factory ("Enterprise", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
+.factory ("API", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
   return {
-    index: function () {
 
-    },
-    show: function () {
-
-    },
-    create: function () {
-
-    },
-    update: function () {
-
-    },
-    delete: function () {
-
-    }
-  }
-}])
-.factory ("Agency", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
-  return {
-    index: function () {
-
-    },
-    show: function () {
-
-    },
-    create: function () {
-
-    },
-    update: function () {
-
-    },
-    delete: function () {
-
-    }
-  }
-}])
-.factory ("Inspection", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
-  return {
-    index: function () {
-
-    },
-    show: function () {
-
-    },
-    create: function () {
-
-    },
-    update: function () {
-
-    },
-    delete: function () {
-
-    }
   }
 }])

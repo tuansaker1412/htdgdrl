@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  session: 1
+  year: 1
+  form: MyString
+
+two:
+  status: MyString
+  session: 1
+  year: 1
+  form: MyString

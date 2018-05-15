@@ -4,26 +4,18 @@
       <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
           ng-class="{'page-sidebar-menu-closed':true}">
         <li class="start nav-item"
-            ng-class="{'active': true}">
-          <a>
+          ng-class="{'active': state.current.name == 'main'}">
+          <a ui-sref="main">
             <i class="icon-home"></i>
             <span class="title">{{"home"| translator: 'main'}}</span>
           </a>
         </li>
         <li class="nav-item"
-            ng-class="{'active': state.current.name == 'main.inspections'}"
-            ng-show="currentUser.role != 'admin'">
-          <a ui-sref="main.inspections">
-            <i class="icon-notebook"></i>
-            <span class="title">{{"inspection_plan"| translator: 'main'}}</span>
-          </a>
-        </li>
-        <li class="nav-item"
-            ng-class="{'active': state.current.name == 'main.enterprises'}"
-            ng-show="currentUser.role != 'admin'">
-          <a ui-sref="main.enterprises">
+          ng-class="{'active': state.current.name == 'main.forms'}">
+          <!-- ng-show="currentUser.role != 'admin'"> -->
+          <a ui-sref="main.forms">
             <i class="icon-users"></i>
-            <span class="title">{{"enterprises"| translator: 'main'}}</span>
+            <span class="title">Đánh giá điểm rèn luyện</span>
           </a>
         </li>
       </ul>

@@ -21,10 +21,13 @@ app.controller("SessionsController",['$scope', '$rootScope', '$state', '$http', 
     var modalInstance = $uibModal.open({
       template: "<div class='modal-header'>Tài khoản thử nghiệm</div><div class='modal-body'><table class='table table-bordered'><tr ng-repeat='user in users'><td>{{user.email}}</td><td>{{user.role}}</td><td><input value='Chọn' type='button' class='btn btn-sm btn-default' ng-click='select(user)'/></td></tr></table></div>",
       controller: ['$scope', '$uibModalInstance', 'toastr', function ($scope, $uibModalInstance, toastr) {
-        $scope.users = [{email: "admin@saokhuee.com", role: "admin"}];
+        $scope.users = [{email: "admin@gmail.com", role: "Nhà trường"},
+          {email: "teacher@gmail.com", role: "Chủ nhiệm"},
+          {email: "super_student@gmail.com", role: "Lớp trưởng"},
+          {email: "student@gmail.com", role: "Sinh viên"}];
         $scope.select = function(user) {
-          $scope.$parent.email = "test@gmail.com";
-          $scope.$parent.password = "Qqqqqq@2";
+          $scope.$parent.email = user.email;
+          $scope.$parent.password = "12345678";
           $uibModalInstance.dismiss();
         }
         $scope.close = function () {

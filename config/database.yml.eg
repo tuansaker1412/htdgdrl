@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: rails-metronic-no-register_development
+
+test:
+  <<: *default
+  database: rails-metronic-no-register_test
+
+production:
+  <<: *default
+  database: rails-metronic-no-register_production
+  username: rails-metronic-no-register
+  password: <%= ENV['RAILS-METRONIC-NO-REGISTER_DATABASE_PASSWORD'] %>

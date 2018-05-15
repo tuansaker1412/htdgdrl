@@ -10,7 +10,7 @@
     </div>
     <a href="javascript:;" class="menu-toggler responsive-toggler"
        data-toggle="collapse" data-target=".navbar-collapse"> <span></span></a>
-    <div class="title" style="color: white;">HOME</div>
+    <div class="title" style="color: white;">{{"home"| translator: 'main'}}</div>
     <div class="page-top">
       <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
@@ -25,12 +25,12 @@
                data-close-others="true"
                aria-expanded="true">
               <i class="icon-bell"></i>
-              <span class="badge badge-danger"> 3 </span>
+              <span class="badge badge-danger"> 0 </span>
             </a>
             <ul class="dropdown-menu">
               <li class="external">
                 <h3>
-                  <span class="bold">4</span> Thông báo
+                  <span class="bold">0</span> Thông báo
                 </h3>
               </li>
               <li>
@@ -60,7 +60,7 @@
           <li class="dropdown dropdown-user dropdown-light">
             <a href="#" class="dropdown-toggle"
                data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-              <span class="username username-hide-on-mobile">{{currentUser.username}}</span>
+              <span class="username username-hide-on-mobile">{{currentUser.first_name}} {{currentUser.last_name}}</span>
               <img alt="" class="img-circle" src="/images/avatar.jpg" /></a>
             <ul class="dropdown-menu dropdown-menu-default">
               <li>
