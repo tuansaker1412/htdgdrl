@@ -29,6 +29,7 @@ LANGUAGE.en = {
     "forgot_password": "Forgot password",
     "logout" : "Log out",
     "test_account": "Trial accounts",
+    "home": "HOME",
   },
   "validate": {
     "username": "Username contain only a-z, 0-9, and underscore characters.",

@@ -33,17 +33,12 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
   .state('main', {
     url: "/main",
     templateUrl: "/templates/main.html",
-    controller: ['$scope', '$state', 'Auth', function ($scope, $state, Auth) {
-      $scope.signOut = function () {
-        Auth.signOut();
-        $state.go("signin");
-      }
-    }],
+    controller: "MainController",
     requireLogin: true
   })
-  .state('main.enterprises', {
-    url: "/enterprises",
-    templateUrl: "/templates/enterprises/index.html",
+  .state('main.forms', {
+    url: "/forms",
+    templateUrl: "/templates/students/forms/index.html",
     resolve: {
       // enterprises: ['API', '$stateParams', function(API, $stateParams) {
       //   return API.getEnterprise($stateParams.page, $stateParams.per_page, $stateParams.keyword, $stateParams.type)
@@ -52,7 +47,7 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
       //   });
       // }]
     },
-    controller: "EnterprisesController",
+    controller: "FormsController",
     requireLogin: true
   })
   $urlRouterProvider.otherwise('/main');

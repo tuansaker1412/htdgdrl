@@ -10,6 +10,10 @@ Rails.application.routes.draw do
         resources :registrations
         resources :confirmations
         resources :unlock
+        put "update_password", :to => "users#update"
+      end
+      namespace :students do
+        resources :forms
       end
     end
   end

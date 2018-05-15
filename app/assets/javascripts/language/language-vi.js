@@ -36,7 +36,9 @@ LANGUAGE.vi = {
     "phone_number": "Điện thoại",
     "manipulation": "Thao tác",
     "total_records": "Tổng số bản ghi",
-    "inspection_plan": "Kế hoạch thanh tra"
+    "inspection_plan": "Kế hoạch thanh tra",
+    "save": "Lưu",
+    "close": "Đóng",
   },
   "validate": {
     "username": "Tên đăng nhập chỉ được chứa ký tự a-z, 0-9 và dấu gạch dưới.",
