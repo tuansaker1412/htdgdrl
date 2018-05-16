@@ -1,7 +1,7 @@
 class CreateForms < ActiveRecord::Migration
   def change
     create_table :forms do |t|
-      t.string :status
+      t.integer :status
       t.integer :session
       t.integer :year
       t.string :form

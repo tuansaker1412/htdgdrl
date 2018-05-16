@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  require "api_constraints"
   root "static_pages#home"
   devise_for :users, :skip => :sessions, :controllers => {:passwords => 'api/v1/users/passwords'}
   namespace :api, defaults: { format: :json } do
-    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+    namespace :v1 do
       post "sign_in", :to => 'sessions#create'
       namespace :users do
         resources :passwords
@@ -14,6 +13,9 @@ Rails.application.routes.draw do
       end
       namespace :students do
         resources :forms
+      end
+      namespace :admins do
+        resources :class_names
       end
     end
   end

@@ -7,4 +7,14 @@ class Api::V1::Students::FormsController < ApplicationController
   def index
 
   end
+
+  def create
+
+  end
+
+  private
+
+  def form_params
+    params.require(:form).permit(:status, :session, :year, :form, :total, :user_id)
+  end
 end

@@ -1,1 +1,75 @@
-hihi
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="caption caption-md">
+      <span class="caption-subject font-blue-madison bold uppercase font-custom">
+        Đánh giá điểm rèn luyện
+      </span>
+    </div>
+    <div class="inputs">
+      <a class="btn blue-custom btn-sm"
+        ng-click='showCreateFormModal()'>
+        <i class="fa fa-plus"></i> Thêm
+      </a>
+    </div>
+  </div>
+
+  <!-- <div class="caption caption-md">
+    <span class="caption-subject font-blue-madison bold uppercase font-custom">
+      Danh sách lớp khóa học
+    </span>
+  </div> -->
+  <div class="portlet-body">
+
+    <div class="max-width-100-pc scrollable">
+      <table class="table table-hover table-custom table-striped" fixed-header>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th class="text-left">Họ và tên</th>
+            <th>Ngày sinh</th>
+            <th>MSSV</th>
+            <th>Năm học</th>
+            <th>Kì</th>
+            <th>Tổng điểm</th>
+            <th>Xem</th>
+            <th>Sửa</th>
+            <th>Gửi</th>
+            <th>Xóa</th>
+          </tr>
+        </thead>
+        <tbody class="max-height-table">
+          <tr ng-repeat="class_name in class_names.data">
+            <td>{{$index + 1}}</td>
+            <td class="text-left">{{currentUser.first_name}} {{currentUser.last_name}}</td>
+            <td>{{currentUser.birthday}}</td>
+            <td>{{currentUser.mssv}}</td>
+            <td>{{year}}</td>
+            <td>{{session}}</td>
+            <td>{{total}}</td>
+            <td>
+              <a href="#" ng-click='showEditModal(class_name.id)' title="Sửa" tooltip>
+                 <i class="fa fa-edit"></i>
+               </a>
+            </td>
+            <td>
+              <a href="#" ng-click='showEditModal(class_name.id)' title="Sửa" tooltip>
+                 <i class="fa fa-edit"></i>
+               </a>
+            </td>
+            <td>
+              <a href="#" ng-click='showEditModal(class_name.id)' title="Sửa" tooltip>
+                 <i class="fa fa-edit"></i>
+               </a>
+            </td>
+            <td>
+              <a href="#" ng-click='showDeleteModal(class_name)' title="Xóa" tooltip>
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
