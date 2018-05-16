@@ -11,8 +11,16 @@
           </a>
         </li>
         <li class="nav-item"
-          ng-class="{'active': state.current.name == 'main.forms'}">
-          <!-- ng-show="currentUser.role != 'admin'"> -->
+          ng-class="{'active': state.current.name == 'main.class_names'}"
+          ng-show="currentUser.role == 'admin'">
+          <a ui-sref="main.class_names">
+            <i class="icon-users"></i>
+            <span class="title">Danh mục lớp khóa học</span>
+          </a>
+        </li>
+        <li class="nav-item"
+          ng-class="{'active': state.current.name == 'main.forms'}"
+          ng-show="currentUser.role == 'student'">
           <a ui-sref="main.forms">
             <i class="icon-users"></i>
             <span class="title">Đánh giá điểm rèn luyện</span>

@@ -50,5 +50,18 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
     controller: "FormsController",
     requireLogin: true
   })
+  .state('main.class_names', {
+    url: "/class_names?page&&keyword",
+    templateUrl: "/templates/admins/class_names/index.html",
+    resolve: {
+      class_names: ['API', '$stateParams', function(API, $stateParams) {
+        return API.getClassNames($stateParams.page, $stateParams.keyword).then(function(response) {
+          return response.data;
+        });
+      }]
+    },
+    controller: "ClassNamesController",
+    requireLogin: true
+  })
   $urlRouterProvider.otherwise('/main');
 }]);
