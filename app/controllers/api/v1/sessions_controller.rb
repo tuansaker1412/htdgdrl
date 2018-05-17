@@ -6,8 +6,13 @@ class Api::V1::SessionsController < ApplicationController
 
   def create
     auth_token = JsonWebToken.encode(user_id: @user.id)
-    render json: {code: 1, message: t("devise.confirmations.signed_in"),
-      user: @user, token: auth_token}, status: 200
+    if @user.role != "admin"
+      render json: {code: 1, message: t("devise.confirmations.signed_in"),
+        user: @user, token: auth_token, class_name: @user.class_name.name}, status: 200
+    else
+      render json: {code: 1, message: t("devise.confirmations.signed_in"),
+        user: @user, token: auth_token}, status: 200
+    end
   end
 
   private
