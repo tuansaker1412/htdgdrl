@@ -1,7 +1,7 @@
 app.controller("ClassNamesController", ['$scope', '$rootScope', '$state', 'toastr', 'API', '$uibModal', '$ngBootbox', 'class_names',
   function ($scope, $rootScope, $state, toastr, API, $uibModal, $ngBootbox, class_names) {
   $scope.class_names = class_names;
-  console.log($scope.class_names)
+
   $scope.keyword = $state.params.keyword;
   $scope.class_name = {};
   $scope.currentPage = $state.params.page || 1;

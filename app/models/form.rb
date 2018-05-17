@@ -5,6 +5,5 @@ class Form < ActiveRecord::Base
 
   validates :session, presence: true
   validates :year, presence: true
-  validates :form, presence: true
   validates :total, presence: true
 end

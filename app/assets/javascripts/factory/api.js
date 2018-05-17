@@ -29,6 +29,15 @@ factory_app
         url: "/api/v1/students/forms"
       });
     },
+    getForm: function(form_id) {
+      return $http.get("/api/v1/students/forms/" + form_id);
+    },
+    updateForm: function(form_id, form) {
+      return $http.put("/api/v1/students/forms/" + form_id, {form: form});
+    },
+    deleteForm: function(form_id) {
+      return $http.delete("/api/v1/students/forms/" + form_id);
+    },
     createForm: function(form) {
       return $http.post("/api/v1/students/forms/", {form: form});
     },

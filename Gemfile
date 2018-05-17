@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 
 gem "rails", "4.2.8"
+gem "jbuilder", "~> 2.0"
 gem "sass-rails", "~> 5.0"
 gem "bootstrap-sass", "~> 3.3.7"
 gem "bootstrap-social-rails", "~> 4.12.0"

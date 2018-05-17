@@ -38,31 +38,31 @@
           </tr>
         </thead>
         <tbody class="max-height-table">
-          <tr ng-repeat="class_name in class_names.data">
+          <tr ng-repeat="form in forms.data">
             <td>{{$index + 1}}</td>
             <td class="text-left">{{currentUser.first_name}} {{currentUser.last_name}}</td>
             <td>{{currentUser.birthday}}</td>
             <td>{{currentUser.mssv}}</td>
-            <td>{{year}}</td>
-            <td>{{session}}</td>
-            <td>{{total}}</td>
+            <td>{{form.year}}</td>
+            <td>{{form.session}}</td>
+            <td>{{form.total}}</td>
             <td>
-              <a href="#" ng-click='showEditModal(class_name.id)' title="Sửa" tooltip>
+              <a href="#" ng-click='showViewFormModal(form.id)' title="Xem" tooltip>
+                 <i class="fa fa-eye"></i>
+               </a>
+            </td>
+            <td>
+              <a href="#" ng-click='showEditFormModal(form.id)' title="Sửa" tooltip>
                  <i class="fa fa-edit"></i>
                </a>
             </td>
             <td>
-              <a href="#" ng-click='showEditModal(class_name.id)' title="Sửa" tooltip>
-                 <i class="fa fa-edit"></i>
+              <a href="#" ng-click='showSendFormModal(form.id)' title="Gửi" tooltip>
+                 <i class="fa fa-send"></i>
                </a>
             </td>
             <td>
-              <a href="#" ng-click='showEditModal(class_name.id)' title="Sửa" tooltip>
-                 <i class="fa fa-edit"></i>
-               </a>
-            </td>
-            <td>
-              <a href="#" ng-click='showDeleteModal(class_name)' title="Xóa" tooltip>
+              <a href="#" ng-click='showDeleteFormModal(form)' title="Xóa" tooltip>
                 <i class="fa fa-trash-o"></i>
               </a>
             </td>

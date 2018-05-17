@@ -40,12 +40,11 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
     url: "/forms",
     templateUrl: "/templates/students/forms/index.html",
     resolve: {
-      // enterprises: ['API', '$stateParams', function(API, $stateParams) {
-      //   return API.getEnterprise($stateParams.page, $stateParams.per_page, $stateParams.keyword, $stateParams.type)
-      //             .then(function(response) {
-      //     return response.data;
-      //   });
-      // }]
+      forms: ['API', '$stateParams', function(API, $stateParams) {
+        return API.getForms().then(function(response) {
+          return response.data;
+        });
+      }]
     },
     controller: "FormsController",
     requireLogin: true

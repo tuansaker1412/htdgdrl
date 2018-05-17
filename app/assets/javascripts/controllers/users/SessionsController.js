@@ -6,6 +6,7 @@ app.controller("SessionsController",['$scope', '$rootScope', '$state', '$http', 
       NProgress.done();
       if(response.data.code == 1) {
         $rootScope.currentUser = response.data.user;
+        $rootScope.currentUser.class_name = response.data.class_name;
         $http.defaults.headers.common["Authorization"] = 'Bearer ' + response.data.token;
         $window.localStorage.user = JSON.stringify(response.data.user);
         $window.localStorage.token = response.data.token;
