@@ -3,3 +3,4 @@ api:
   company: saokhuee
   client_name: client
 max_failed_attempts: 5
+per_page: 15

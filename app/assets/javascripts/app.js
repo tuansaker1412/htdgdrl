@@ -49,6 +49,45 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
     controller: "FormsController",
     requireLogin: true
   })
+  .state('main.approval_students', {
+    url: "/approval_students?page",
+    templateUrl: "/templates/super_students/approval_students/index.html",
+    resolve: {
+      forms: ['API', '$stateParams', function(API, $stateParams) {
+        return API.getFormsbySuperStudent($stateParams.page).then(function(response) {
+          return response.data;
+        });
+      }]
+    },
+    controller: "ApprovalStudentsController",
+    requireLogin: true
+  })
+  .state('main.approval_teachers', {
+    url: "/approval_teachers?page",
+    templateUrl: "/templates/super_students/approval_students/index.html",
+    resolve: {
+      forms: ['API', '$stateParams', function(API, $stateParams) {
+        return API.getFormsbyTeacher($stateParams.page).then(function(response) {
+          return response.data;
+        });
+      }]
+    },
+    controller: "ApprovalTeachersController",
+    requireLogin: true
+  })
+  .state('main.list_forms', {
+    url: "/list_forms?page",
+    templateUrl: "/templates/admins/forms/index.html",
+    resolve: {
+      forms: ['API', '$stateParams', function(API, $stateParams) {
+        return API.getListForms($stateParams.page).then(function(response) {
+          return response.data;
+        });
+      }]
+    },
+    controller: "ListFormsController",
+    requireLogin: true
+  })
   .state('main.class_names', {
     url: "/class_names?page&&keyword",
     templateUrl: "/templates/admins/class_names/index.html",

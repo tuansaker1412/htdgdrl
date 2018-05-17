@@ -19,6 +19,14 @@
           </a>
         </li>
         <li class="nav-item"
+          ng-class="{'active': state.current.name == 'main.list_forms'}"
+          ng-show="currentUser.role == 'admin'">
+          <a ui-sref="main.list_forms">
+            <i class="fa fa-check"></i>
+            <span class="title">Danh sách phiếu đánh giá điểm rèn luyện</span>
+          </a>
+        </li>
+        <li class="nav-item"
           ng-class="{'active': state.current.name == 'main.forms'}"
           ng-show="currentUser.role == 'student'">
           <a ui-sref="main.forms">
@@ -32,6 +40,22 @@
           <a ui-sref="main.forms">
             <i class="fa fa-file-o"></i>
             <span class="title">Đánh giá điểm rèn luyện</span>
+          </a>
+        </li>
+        <li class="nav-item"
+          ng-class="{'active': state.current.name == 'main.approval_students'}"
+          ng-show="currentUser.role == 'super_student'">
+          <a ui-sref="main.approval_students">
+            <i class="fa fa-check"></i>
+            <span class="title">Xét duyệt phiếu đánh giá điểm rèn luyện</span>
+          </a>
+        </li>
+        <li class="nav-item"
+          ng-class="{'active': state.current.name == 'main.approval_teachers'}"
+          ng-show="currentUser.role == 'teacher'">
+          <a ui-sref="main.approval_teachers">
+            <i class="fa fa-check"></i>
+            <span class="title">Xét duyệt phiếu đánh giá điểm rèn luyện</span>
           </a>
         </li>
       </ul>

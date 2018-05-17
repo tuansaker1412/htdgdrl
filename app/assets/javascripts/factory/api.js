@@ -41,5 +41,38 @@ factory_app
     createForm: function(form) {
       return $http.post("/api/v1/students/forms/", {form: form});
     },
+    sendForm: function(form) {
+      return $http.post("/api/v1/send_form/", {form: form});
+    },
+    backForm: function(form) {
+      return $http.post("/api/v1/back_form/", {form: form});
+    },
+    getFormsbySuperStudent: function(page) {
+      return $http({
+        method: "GET",
+        url: "/api/v1/super_students/forms",
+        params: {
+          page: page || 1
+        }
+      });
+    },
+    getFormsbyTeacher: function(page) {
+      return $http({
+        method: "GET",
+        url: "/api/v1/teachers/forms",
+        params: {
+          page: page || 1
+        }
+      });
+    },
+    getListForms: function(page) {
+      return $http({
+        method: "GET",
+        url: "/api/v1/admins/forms",
+        params: {
+          page: page || 1
+        }
+      });
+    },
   }
 }])
