@@ -2,14 +2,8 @@
   <div class="portlet-title">
     <div class="caption caption-md">
       <span class="caption-subject font-blue-madison bold uppercase font-custom">
-        Đánh giá điểm rèn luyện
+        Xét duyệt phiếu đánh giá điểm rèn luyện
       </span>
-    </div>
-    <div class="inputs">
-      <a class="btn blue-custom btn-sm"
-        ng-click='showCreateFormModal()'>
-        <i class="fa fa-plus"></i> Thêm
-      </a>
     </div>
   </div>
 
@@ -32,17 +26,16 @@
             <th>Kì</th>
             <th>Tổng điểm</th>
             <th>Xem</th>
-            <th>Sửa</th>
             <th>Phê duyệt</th>
-            <th>Xóa</th>
+            <th>Trả lại</th>
           </tr>
         </thead>
         <tbody class="max-height-table">
           <tr ng-repeat="form in forms.data">
             <td>{{$index + 1}}</td>
-            <td class="text-left">{{currentUser.first_name}} {{currentUser.last_name}}</td>
-            <td>{{currentUser.birthday}}</td>
-            <td>{{currentUser.mssv}}</td>
+            <td class="text-left">{{form.first_name}} {{form.last_name}}</td>
+            <td>{{form.birthday}}</td>
+            <td>{{form.mssv}}</td>
             <td>{{form.year}}</td>
             <td>{{form.session}}</td>
             <td>{{form.total}}</td>
@@ -52,21 +45,13 @@
                </a>
             </td>
             <td>
-              <a href="#" ng-click='showEditFormModal(form.id)' title="Sửa" tooltip
-                ng-show="form.status == currentUser.role">
-                 <i class="fa fa-edit"></i>
-               </a>
-            </td>
-            <td>
-              <a href="#" ng-click='showSendFormModal(form)' title="Phê duyệt" tooltip
-                ng-show="form.status == currentUser.role">
+              <a href="#" ng-click='showSendFormModal(form)' title="Phê duyệt" tooltip>
                  <i class="fa fa-arrow-right"></i>
                </a>
             </td>
             <td>
-              <a href="#" ng-click='showDeleteFormModal(form)' title="Xóa" tooltip
-                ng-show="form.status == currentUser.role">
-                <i class="fa fa-trash-o"></i>
+              <a href="#" ng-click='showBackFormModal(form)' title="Trả lại" tooltip>
+                <i class="fa fa-arrow-left"></i>
               </a>
             </td>
           </tr>
@@ -74,5 +59,11 @@
       </table>
     </div>
 
+    <div>
+      <ul uib-pagination ng-change="pageChanged()" boundary-links="true" total-items="forms.total"
+          ng-model="currentPage" class="pagination-sm" max-size="10" items-per-page="forms.per_page"
+          previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+      <div class="pull-right">Tổng: {{forms.total}}</div>
+    </div>
   </div>
 </div>

@@ -12,7 +12,6 @@ class Api::V1::Students::FormsController < ApplicationController
   end
 
   def show
-    render json: {code: 1, data: @form, message: "success"}
   end
 
   def create

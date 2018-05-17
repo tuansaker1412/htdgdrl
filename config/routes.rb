@@ -16,7 +16,16 @@ Rails.application.routes.draw do
       end
       namespace :admins do
         resources :class_names
+        resources :forms, only: [:index]
       end
+      namespace :teachers do
+        resources :forms, only: [:index]
+      end
+      namespace :super_students do
+        resources :forms, only: [:index]
+      end
+      post "/send_form", :to => "forms#send_form"
+      post "/back_form", :to => "forms#back_form"
     end
   end
   namespace :admin do

@@ -109,4 +109,17 @@ app.controller("FormsController", ['$scope', '$rootScope', '$state', 'toastr', '
       });
     });
   }
+
+  $scope.showSendFormModal = function(form) {
+    NProgress.start();
+    API.sendForm(form).success(function(response) {
+      NProgress.done();
+      if(response.code == 1) {
+        $state.reload($state.current);
+        toastr.success(response.message);
+      } else {
+        toastr.error(response.message);
+      }
+    });
+  }
 }]);

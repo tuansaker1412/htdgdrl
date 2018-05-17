@@ -25,13 +25,13 @@
           <label>Họ và tên:</label>
         </div>
         <div class="col-xs-3 form-group">
-          {{currentUser.first_name}} {{currentUser.last_name}}
+          {{addform.first_name}} {{addform.last_name}}
         </div>
         <div class="col-xs-3 form-group">
           <label>Ngày sinh:</label>
         </div>
         <div class="col-xs-3 form-group">
-          {{currentUser.birthday | date:'dd/MM/yyyy'}}
+          {{addform.birthday | date:'dd/MM/yyyy'}}
         </div>
       </div>
 
@@ -40,14 +40,14 @@
           <label>Mã số sinh viên:</label>
         </div>
         <div class="col-xs-3 form-group">
-          {{currentUser.mssv}}
+          {{addform.mssv}}
         </div>
 
         <div class="col-xs-3 form-group">
           <label>Lớp:</label>
         </div>
         <div class="col-xs-3 form-group">
-          {{currentUser.class_name}}
+          {{addform.class_name}}
         </div>
       </div>
     </div>
