@@ -11,6 +11,22 @@
           </a>
         </li>
         <li class="nav-item"
+          ng-class="{'active': state.current.name == 'main.students'}"
+          ng-show="currentUser.role == 'admin'">
+          <a ui-sref="main.students">
+            <i class="fa fa-users"></i>
+            <span class="title">Quản lý sinh viên</span>
+          </a>
+        </li>
+        <li class="nav-item"
+          ng-class="{'active': state.current.name == 'main.teachers'}"
+          ng-show="currentUser.role == 'admin'">
+          <a ui-sref="main.teachers">
+            <i class="fa fa-users"></i>
+            <span class="title">Quản lý chủ nhiệm</span>
+          </a>
+        </li>
+        <li class="nav-item"
           ng-class="{'active': state.current.name == 'main.class_names'}"
           ng-show="currentUser.role == 'admin'">
           <a ui-sref="main.class_names">

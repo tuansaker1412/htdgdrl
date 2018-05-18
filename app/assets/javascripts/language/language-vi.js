@@ -45,14 +45,20 @@ LANGUAGE.vi = {
     "require": "Trường này không được để trống.",
     "email": "Email không đúng định dạng.",
     "maxlength": "Trường này không được để trống và không được quá 255 ký tự.",
+    "maxlength_user": "Trường này không được để trống và không được quá 50 ký tự.",
     "password": "Mật khẩu dài ít nhất 8 kí tự.",
     "password_confirm": "Mật khẩu xác nhận không đúng.",
     "min": "Vui lòng nhập giá trị lớn hơn hoặc bằng {0}.",
     "max": "Vui lòng nhập giá trị nhỏ hơn hoặc bằng {0}.",
   },
-  "enterprise": {
-    "name": "Tên doanh nghiệp",
-    "english_name": "Tên Tiếng Anh",
-    "code": "Mã DN"
+  "role": {
+    "student": "Sinh viên",
+    "super_student": "Lớp trưởng",
+    "teacher": "Chủ nhiệm",
+    "admin": "Nhà trường",
+    "0": "Sinh viên",
+    "1": "Lớp trưởng",
+    "2": "Chủ nhiệm",
+    "3": "Nhà trường"
   }
 }

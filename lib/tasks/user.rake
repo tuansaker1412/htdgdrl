@@ -2,7 +2,6 @@ namespace :user do
   task init: :environment do
     User.create(first_name: Faker::Name.last_name,
       last_name: Faker::Name.last_name,
-      username: "admin",
       email: "admin@gmail.com",
       password: "12345678",
       password_confirmation: "12345678",
@@ -10,7 +9,6 @@ namespace :user do
 
     User.create(first_name: Faker::Name.last_name,
       last_name: Faker::Name.last_name,
-      username: "student",
       email: "student@gmail.com",
       password: "12345678",
       password_confirmation: "12345678",
@@ -19,7 +17,6 @@ namespace :user do
 
     User.create(first_name: Faker::Name.last_name,
       last_name: Faker::Name.last_name,
-      username: "super_student",
       email: "super_student@gmail.com",
       password: "12345678",
       password_confirmation: "12345678",
@@ -28,7 +25,6 @@ namespace :user do
 
     User.create(first_name: Faker::Name.last_name,
       last_name: Faker::Name.last_name,
-      username: "teacher",
       email: "teacher@gmail.com",
       password: "12345678",
       password_confirmation: "12345678",

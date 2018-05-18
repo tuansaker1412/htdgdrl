@@ -1,0 +1,121 @@
+<form ng-submit="createAdminForm.$valid && editStudent()" name="createAdminForm" novalidate>
+  <div class="modal-header bg-blue-custom padding-title">
+    <h3 class="modal-title text-bold-header"> Sửa sinh viên </h3>
+  </div>
+  <div class="modal-body">
+    <div class="row row-flex">
+
+      <div class="form-group col-xs-12 col-md-6">
+        <label class="required">Email:</label>
+        <input ng-model="student.email" name="email" type="email"
+          ng-pattern="/^\s*[A-z0-9._%+-]+@[A-z0-9.-]+\.[a-z]{2,63}\s*$/"
+          class="form-control input-sm" autofocus
+          ng-maxlength="50" required>
+        <div ng-messages="createAdminForm.email.$error" ng-show="createAdminForm.$submitted" class="text-error">
+          <div ng-message="required">{{"require" | translator: 'validate'}}</div>
+           <div ng-message="maxlength">{{"maxlength_user" | translator: 'validate'}}</div>
+          <div ng-message="pattern">{{"email" | translator: 'validate'}}</div>
+        </div>
+      </div>
+      <div class="form-group col-xs-12 col-md-6">
+        <label>Mật khẩu:</label>
+        <input ng-model="student.password" name="password" type="password" class="form-control input-sm"
+          minlength="8" ng-maxlength="50">
+        <div ng-messages="createAdminForm.password.$error" ng-show="createAdminForm.$submitted" class="text-error">
+          <div ng-message="maxlength">{{"maxlength_user" | translator: 'validate'}}</div>
+          <div ng-message="minlength">{{"password" | translator: 'validate'}}</div>
+        </div>
+      </div>
+
+      <div class="form-group col-xs-12 col-md-6">
+        <label class="required">Họ</label>
+        <input ng-model="student.first_name" name="first_name"
+               class="form-control input-sm"
+               ng-maxlength="50" required>
+        <div ng-messages="createAdminForm.first_name.$error" ng-show="createAdminForm.$submitted" class="text-error">
+          <div ng-message="maxlength">{{"maxlength_user" | translator: 'validate'}}</div>
+          <div ng-message="required">{{"require" | translator: 'validate'}}</div>
+        </div>
+      </div>
+
+      <div class="form-group col-xs-12 col-md-6">
+        <label class="required">Tên</label>
+        <input ng-model="student.last_name" name="last_name"
+               class="form-control input-sm"
+               ng-maxlength="50" required>
+        <div ng-messages="createAdminForm.last_name.$error" ng-show="createAdminForm.$submitted" class="text-error">
+          <div ng-message="maxlength">{{"maxlength_user" | translator: 'validate'}}</div>
+          <div ng-message="required">{{"require" | translator: 'validate'}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label class="required">Ngày sinh</label>
+          <label class="input-group">
+            <input ng-model="student.birthday" name="birthday" class="form-control input-sm"
+              input-mask="{mask: '99/99/9999'}" required datepicker>
+            <span class="input-group-btn">
+              <span class="btn btn-default btn-sm">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </span>
+            </span>
+          </label>
+          <div ng-messages="createAdminForm.birthday.$error" class="text-error" ng-show="createAdminForm.$submitted">
+            <div ng-message="required">{{"require" | translator: 'validate'}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label class="required">MSSV</label>
+          <input ng-model="student.mssv" name="mssv"
+            class="form-control input-sm" required>
+          <div ng-messages="createAdminForm.mssv.$error" ng-show="createAdminForm.$submitted" class="text-error">
+            <div ng-message="required">{{"require" | translator: 'validate'}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-xs-12 col-md-6">
+        <label class="required">Lớp</label>
+        <ui-select ng-model="student.class_name_id" theme="select2" append-to-body="true"
+          name="class_name_id" ng-required="true">
+          <ui-select-match>
+            {{$select.selected.name}}
+          </ui-select-match>
+          <ui-select-choices repeat="item.id as item in class_names | filter: $select.search">
+            <span ng-bind-html="item.name | highlight: $select.search"></span>
+          </ui-select-choices>
+        </ui-select>
+        <div ng-messages="createAdminForm.class_name_id.$error"
+             ng-show="createAdminForm.$submitted" class="text-error">
+          <div ng-message="required">{{"require" | translator: 'validate'}}</div>
+        </div>
+      </div>
+
+      <div class="form-group col-xs-12 col-md-6">
+        <label class="required">Chức vụ</label>
+        <ui-select ng-model="student.role" theme="select2" append-to-body="true"
+          name="role" ng-required="true">
+          <ui-select-match>
+            {{$select.selected | translator: 'role'}}
+          </ui-select-match>
+          <ui-select-choices repeat="role in [0, 1] | filter: $select.search">
+            <span ng-bind-html="role | translator: 'role' | highlight: $select.search"></span>
+          </ui-select-choices>
+        </ui-select>
+        <div ng-messages="createAdminForm.role.$error"
+             ng-show="createAdminForm.$submitted" class="text-error">
+          <div ng-message="required">{{"require" | translator: 'validate'}}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <input ng-click="close()" class="btn btn-default btn-sm" type="button" data-dismiss="modal" value='{{"close"| translator: "main"}}'>
+    <button class="btn blue-custom btn-sm" type="submit"><i class="fa fa-save"></i> {{"save"| translator: "main"}}</button>
+  </div>
+</form>
