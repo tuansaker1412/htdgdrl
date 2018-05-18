@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   enum role: {student: 0, super_student: 1, teacher: 2, admin: 3}
 
+  validates :role, presence: true
+
   def active?
     status == "active"
   end

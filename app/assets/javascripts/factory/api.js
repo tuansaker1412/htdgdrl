@@ -23,6 +23,9 @@ factory_app
     createClassName: function(class_name) {
       return $http.post("/api/v1/admins/class_names/", {class_name: class_name});
     },
+    getAllClassNames: function() {
+      return $http.get("/api/v1/admins/get_all_class_names");
+    },
     getForms: function() {
       return $http({
         method: "GET",
@@ -73,6 +76,28 @@ factory_app
           page: page || 1
         }
       });
+    },
+    getStudents: function(page, keyword) {
+      return $http({
+        method: "GET",
+        url: "/api/v1/admins/students",
+        params: {
+          page: page || 1,
+          keyword: keyword
+        }
+      });
+    },
+    getStudent: function(student_id) {
+      return $http.get("/api/v1/admins/students/" + student_id);
+    },
+    updateStudent: function(student_id, student) {
+      return $http.put("/api/v1/admins/students/" + student_id, {student: student});
+    },
+    deleteStudent: function(student_id) {
+      return $http.delete("/api/v1/admins/students/" + student_id);
+    },
+    createStudent: function(student) {
+      return $http.post("/api/v1/admins/students/", {student: student});
     },
   }
 }])

@@ -59,6 +59,11 @@ class Api::V1::Admins::ClassNamesController < ApplicationController
     end
   end
 
+  def get_all
+    class_names = ClassName.all
+    render json: {code: 1, data: class_names, message: "success"}
+  end
+
   private
 
   def class_name_params

@@ -47,7 +47,8 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
       }]
     },
     controller: "FormsController",
-    requireLogin: true
+    requireLogin: true,
+    requireRoles: ["student", "super_student"]
   })
   .state('main.approval_students', {
     url: "/approval_students?page",
@@ -60,7 +61,8 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
       }]
     },
     controller: "ApprovalStudentsController",
-    requireLogin: true
+    requireLogin: true,
+    requireRoles: ["super_student"]
   })
   .state('main.approval_teachers', {
     url: "/approval_teachers?page",
@@ -73,7 +75,8 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
       }]
     },
     controller: "ApprovalTeachersController",
-    requireLogin: true
+    requireLogin: true,
+    requireRoles: ["teacher"]
   })
   .state('main.list_forms', {
     url: "/list_forms?page",
@@ -99,7 +102,31 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
       }]
     },
     controller: "ClassNamesController",
-    requireLogin: true
+    requireLogin: true,
+    requireRoles: ["admin"]
+  })
+  .state('main.students', {
+    url: "/students?page&&keyword",
+    templateUrl: "/templates/admins/students/index.html",
+    resolve: {
+      students: ['API', '$stateParams', function(API, $stateParams) {
+        return API.getStudents($stateParams.page, $stateParams.keyword).then(function(response) {
+          return response.data;
+        });
+      }]
+    },
+    controller: "AdminStudentsController",
+    requireLogin: true,
+    requireRoles: ["admin"]
+  })
+  .state('main.teachers', {
+    url: "/teachers?page&&keyword",
+    templateUrl: "/templates/admins/teachers/index.html",
+    resolve: {
+    },
+    controller: "AdminTeachersController",
+    requireLogin: true,
+    requireRoles: ["admin"]
   })
   $urlRouterProvider.otherwise('/main');
 }]);
