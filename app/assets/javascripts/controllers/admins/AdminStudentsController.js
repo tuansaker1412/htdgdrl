@@ -1,13 +1,13 @@
-app.controller("AdminStudentsController", ['$scope', '$rootScope', '$state', 'toastr', 'API', '$uibModal', '$ngBootbox', 'students',
-  function ($scope, $rootScope, $state, toastr, API, $uibModal, $ngBootbox, students) {
-  $scope.students = students;
+app.controller("AdminUsersController", ['$scope', '$rootScope', '$state', 'toastr', 'API', '$uibModal', '$ngBootbox', 'users',
+  function ($scope, $rootScope, $state, toastr, API, $uibModal, $ngBootbox, users) {
+  $scope.users = users;
 
   $scope.keyword = $state.params.keyword;
   $scope.currentPage = $state.params.page || 1;
-  $scope.showCreateStudentModal = function() {
+  $scope.showCreateUserModal = function() {
     NProgress.start();
     var modalInstance = $uibModal.open({
-      templateUrl: "/templates/admins/students/create.html",
+      templateUrl: "/templates/admins/users/create.html",
       size: 'md',
       backdrop: 'static',
       keyboard: false,
@@ -21,11 +21,11 @@ app.controller("AdminStudentsController", ['$scope', '$rootScope', '$state', 'to
       controller: ['$scope', '$uibModalInstance', 'toastr', '$state', 'API', 'class_names',
         function($scope, $uibModalInstance, toastr, $state, API, class_names) {
         NProgress.done();
-        $scope.student = {};
+        $scope.user = {};
         $scope.class_names = class_names.data;
-        $scope.createStudent = function () {
+        $scope.createUser = function () {
           NProgress.start();
-          API.createStudent($scope.student).success(function (response) {
+          API.createUser($scope.user).success(function (response) {
             NProgress.done();
             if(response.code == 1) {
               $state.reload($state.current);
@@ -43,16 +43,16 @@ app.controller("AdminStudentsController", ['$scope', '$rootScope', '$state', 'to
     });
   }
 
-  $scope.showEditStudentModal = function(student_id) {
+  $scope.showEditUserModal = function(user_id) {
     NProgress.start();
     var modalInstance = $uibModal.open({
-      templateUrl: "/templates/admins/students/edit.html",
+      templateUrl: "/templates/admins/users/edit.html",
       size: 'md',
       backdrop: 'static',
       keyboard: false,
       resolve: {
-        student: ["API", function(API) {
-          return API.getStudent(student_id).then(function(response) {
+        user: ["API", function(API) {
+          return API.getUser(user_id).then(function(response) {
             return response.data;
           });
         }],
@@ -62,14 +62,14 @@ app.controller("AdminStudentsController", ['$scope', '$rootScope', '$state', 'to
           });
         }]
       },
-      controller: ['$scope', 'student', '$uibModalInstance', 'toastr', '$state', 'API', 'class_names',
-        function ($scope, student, $uibModalInstance, toastr, $state, API, class_names) {
+      controller: ['$scope', 'user', '$uibModalInstance', 'toastr', '$state', 'API', 'class_names',
+        function ($scope, user, $uibModalInstance, toastr, $state, API, class_names) {
         NProgress.done();
-        $scope.student = student.data;
+        $scope.user = user.data;
         $scope.class_names = class_names.data;
-        $scope.editStudent = function () {
+        $scope.editUser = function () {
           NProgress.start();
-          API.updateStudent(student_id, $scope.student).success(function (response) {
+          API.updateUser(user_id, $scope.user).success(function (response) {
             NProgress.done();
             if(response.code == 1) {
               $state.reload($state.current);
@@ -87,10 +87,10 @@ app.controller("AdminStudentsController", ['$scope', '$rootScope', '$state', 'to
     });
   }
 
-  $scope.showDeleteStudentModal = function(student) {
-    $ngBootbox.confirm('Bạn chắc chắn muốn xóa "' + student.first_name + ' ' + student.last_name + '"?').then(function() {
+  $scope.showDeleteUserModal = function(user) {
+    $ngBootbox.confirm('Bạn chắc chắn muốn xóa "' + user.first_name + ' ' + user.last_name + '"?').then(function() {
       NProgress.start();
-      API.deleteStudent(student.id).success(function(response) {
+      API.deleteUser(user.id).success(function(response) {
         NProgress.done();
         if(response.code == 1) {
           $state.reload($state.current);

@@ -17,9 +17,8 @@ Rails.application.routes.draw do
       namespace :admins do
         resources :class_names
         resources :forms, only: [:index]
-        resources :students
+        resources :users
         get "/get_all_class_names", :to => "class_names#get_all"
-        resources :teachers
       end
       namespace :teachers do
         resources :forms, only: [:index]
