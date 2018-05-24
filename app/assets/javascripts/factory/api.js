@@ -77,27 +77,27 @@ factory_app
         }
       });
     },
-    getStudents: function(page, keyword) {
+    getUsers: function(page, keyword) {
       return $http({
         method: "GET",
-        url: "/api/v1/admins/students",
+        url: "/api/v1/admins/users",
         params: {
           page: page || 1,
           keyword: keyword
         }
       });
     },
-    getStudent: function(student_id) {
-      return $http.get("/api/v1/admins/students/" + student_id);
+    getUser: function(user_id) {
+      return $http.get("/api/v1/admins/users/" + user_id);
     },
-    updateStudent: function(student_id, student) {
-      return $http.put("/api/v1/admins/students/" + student_id, {student: student});
+    updateUser: function(user_id, user) {
+      return $http.put("/api/v1/admins/users/" + user_id, {user: user});
     },
-    deleteStudent: function(student_id) {
-      return $http.delete("/api/v1/admins/students/" + student_id);
+    deleteUser: function(user_id) {
+      return $http.delete("/api/v1/admins/users/" + user_id);
     },
-    createStudent: function(student) {
-      return $http.post("/api/v1/admins/students/", {student: student});
+    createUser: function(user) {
+      return $http.post("/api/v1/admins/users/", {user: user});
     },
   }
 }])

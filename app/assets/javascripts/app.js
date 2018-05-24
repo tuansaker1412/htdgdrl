@@ -105,26 +105,17 @@ var app = angular.module("AccountApp", ['ngBootbox', 'app.filter', 'app.factory'
     requireLogin: true,
     requireRoles: ["admin"]
   })
-  .state('main.students', {
-    url: "/students?page&&keyword",
-    templateUrl: "/templates/admins/students/index.html",
+  .state('main.users', {
+    url: "/users?page&&keyword",
+    templateUrl: "/templates/admins/users/index.html",
     resolve: {
-      students: ['API', '$stateParams', function(API, $stateParams) {
-        return API.getStudents($stateParams.page, $stateParams.keyword).then(function(response) {
+      users: ['API', '$stateParams', function(API, $stateParams) {
+        return API.getUsers($stateParams.page, $stateParams.keyword).then(function(response) {
           return response.data;
         });
       }]
     },
-    controller: "AdminStudentsController",
-    requireLogin: true,
-    requireRoles: ["admin"]
-  })
-  .state('main.teachers', {
-    url: "/teachers?page&&keyword",
-    templateUrl: "/templates/admins/teachers/index.html",
-    resolve: {
-    },
-    controller: "AdminTeachersController",
+    controller: "AdminUsersController",
     requireLogin: true,
     requireRoles: ["admin"]
   })
